@@ -2,9 +2,9 @@
 
 cudaGraphCreate(&graph);
 cudaGraphAddNode(graph, kernel_a, {}, ...);
-cudaGraphAddNode(graph, kernel_b, { kernel_a }, ...);
-cudaGraphAddNode(graph, kernel_c, { kernel_a }, ...);
-cudaGraphAddNode(graph, kernel_d, { kernel_b, kernel_c }, ...);
+cudaGraphAddNode(graph, kernel_b, { kernel_a }, ...); // Waits for a
+cudaGraphAddNode(graph, kernel_c, { kernel_a }, ...); // Waits for a
+cudaGraphAddNode(graph, kernel_d, { kernel_b, kernel_c }, ...); // Waits for b and c
 
 // Instantiate graph and apply optimizations
 
